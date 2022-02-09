@@ -19,3 +19,4 @@ GRANT ALL ON TABLE public.hello_world TO authenticated;
 GRANT ALL ON TABLE public.hello_world TO postgres;
 
 GRANT ALL ON TABLE public.hello_world TO service_role;
+
