@@ -1,0 +1,20 @@
+name: Migration for Prod DB
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  migration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Supabase CLI
+        run: brew install supabase/tap/supabase
+      - name: Set Remote DB
+        run: |
+          supabase start
+          supabase db commit
+          supabase stop
+      - name: Push Migrations
+        run: supabase db push
